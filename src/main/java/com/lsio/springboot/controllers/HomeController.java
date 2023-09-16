@@ -22,25 +22,25 @@ public class HomeController {
     GamesService gamesService;
 
     @GetMapping("/admin")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public String sayHello(){
         return "Hello Admin";
     }
 
     @GetMapping("/user")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAuthority('ROLE_USER')")
     public String sayHelloU(){
         return "Hello User";
     }
 
-    @GetMapping("/getgames")
+    @GetMapping("/admin/getgames")
     @PreAuthorize("hasRole('ADMIN')")
     public List<Game> getGames(){
         return gamesService.getGames();
     }
 
-    @PostMapping("/addgame")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/admin/addgame")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Game SaveGame(@RequestBody Game game){
         return gamesService.saveGame(game);
     }
