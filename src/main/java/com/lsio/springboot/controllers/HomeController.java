@@ -23,6 +23,7 @@ public class HomeController {
 
     @GetMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
+    //@RolesAllowed({"ADMIN"})   + add -> (jsr250Enabled = true) with @EnableMethodSecurity in SecuConfig
     public String sayHello(){
         return "Hello Admin";
     }
