@@ -74,6 +74,7 @@ public class SecurityConfiguration {
                 auth -> 
                     auth
                     .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                    .requestMatchers("/admin/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
                     )
                 .httpBasic(Customizer.withDefaults())
