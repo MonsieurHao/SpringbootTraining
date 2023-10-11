@@ -61,7 +61,9 @@ public class SecurityConfiguration {
                 authz
                     .requestMatchers("user/**").hasAnyRole("USER","ADMIN")
                     .requestMatchers("/admin/**").hasRole("ADMIN")
-                );
+                    .anyRequest().authenticated()
+                )
+                .csrf().disable();
             return http.build();
     }*/
 
