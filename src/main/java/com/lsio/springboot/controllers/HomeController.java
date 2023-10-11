@@ -3,7 +3,7 @@ package com.lsio.springboot.controllers;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,26 +22,22 @@ public class HomeController {
     GamesService gamesService;
 
     @GetMapping("/admin")
-    @PreAuthorize("hasRole('ADMIN')")
     //@RolesAllowed({"ADMIN"})   + add -> (jsr250Enabled = true) with @EnableMethodSecurity in SecuConfig
     public String sayHello(){
         return "Hello Admin";
     }
 
     @GetMapping("/user")
-    @PreAuthorize("hasRole('USER')")
     public String sayHelloU(){
         return "Hello User";
     }
 
-    @GetMapping("/getgames")
-    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/user/getgames")
     public List<Game> getGames(){
         return gamesService.getGames();
     }
 
-    @PostMapping("/addgame")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/admin/addgame")
     public Game SaveGame(@RequestBody Game game){
         return gamesService.saveGame(game);
     }

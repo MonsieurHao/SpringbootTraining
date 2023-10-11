@@ -1,10 +1,10 @@
 package com.lsio.springboot.services;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
 
 
-
+/*
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)    //enable Expression-Based Access Control by setting prePostEnabled to true
 public class AclMethodSecurityConfiguration 
@@ -78,3 +78,4 @@ public class AclMethodSecurityConfiguration
         );
     }
 }
+ */
