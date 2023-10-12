@@ -62,33 +62,14 @@ public class SecurityConfiguration {
                     .requestMatchers(HttpMethod.GET,"/user").permitAll()
                     .requestMatchers(HttpMethod.POST,"/admin/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
-                    
+                    /* .sessionManagement(
+                    session -> session.sessionCreationPolicy
+                    (SessionCreationPolicy.STATELESS))
+                */
             );
             http.csrf(csrf -> csrf.disable());
             
             return http.build();
-    }
-
-    /* Exemple Ulearn
-    @Bean 
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        return
-            http
-                .authorizeHttpRequests(
-                auth -> 
-                    auth
-                    .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                    .requestMatchers("/admin/**").hasRole("ADMIN")
-                    .anyRequest().authenticated()
-                    )
-                .httpBasic(Customizer.withDefaults())
-                .sessionManagement(
-                    session -> session.sessionCreationPolicy
-                    (SessionCreationPolicy.STATELESS))
-                .csrf().disable()
-                .build();
-    */
-
-    
+    }    
 }
  
