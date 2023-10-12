@@ -28,8 +28,8 @@ public class GameMapper {
     private GameDTO convertGameIntoDTO(Game game){
         GameDTO dto = new GameDTO();
         dto.setId(game.getId());
-        dto.setName(game.getGameName());
-        dto.setEditor(game.getGameEditor());
+        dto.setName(game.getGamename());
+        dto.setEditor(game.getGameeditor());
         return dto;
     }
 }

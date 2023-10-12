@@ -28,6 +28,6 @@ public class GamesService {
     }
 
     public Game getGame(String gameName) {
-        return gameRepository.findByGameName(gameName);
+        return gameRepository.findByGamename(gameName);
     }
 }
