@@ -4,9 +4,7 @@ import lombok.Data;
 
 @Data
 public class GameDTO {
-    private Integer id;
+    private Long id;
     private String name;
     private String editor;
-    
-    
 }

@@ -13,7 +13,6 @@ public class GamesService {
     
     @Autowired
     GameRepository gameRepository;
-
     public GamesService(){
 
     }
