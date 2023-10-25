@@ -3,9 +3,11 @@ package com.lsio.springboot.controllers;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 //import org.springframework.transaction.annotation.Transactional;
 //import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -33,24 +35,29 @@ public class HomeController {
     }
 
     @GetMapping("/user/getgames")
-    public List<Game> getGames(){
+    public ResponseEntity<List<Game>> getGames(){
         return gamesService.getGames();
     }
 
     @PostMapping("/admin/addgame")
-    public Game SaveGame(@RequestBody Game game){
+    public ResponseEntity<String> SaveGame(@RequestBody Game game){
         return gamesService.saveGame(game);
     }
 
-    @GetMapping("/getgame")
-    public Game getGame(String gameName){
+    @GetMapping("/user/getgame/{gameName}")
+    public Game getGame(@PathVariable String gameName){
         return gamesService.getGame(gameName);
+    }
+
+    @GetMapping("/getgame/{id}")
+    public ResponseEntity<Game> getGameWithID(@PathVariable Long id){
+        return gamesService.getGameWithID(id);
     }
 
     @Autowired
     private GameMapper mapper;
 
-    @GetMapping("/map")
+    @GetMapping("/user/map")
     @ResponseBody
     public List<GameDTO> gameDTOs(){
         List<GameDTO> dtos = mapper.getAllGamesDTO();
