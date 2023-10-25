@@ -23,7 +23,6 @@ public class HomeController {
     GamesService gamesService;
 
     @GetMapping("/admin")
-    //@RolesAllowed({"ADMIN"})   + add -> (jsr250Enabled = true) with @EnableMethodSecurity in SecuConfig
     public String sayHello(){
         return "Hello Admin";
     }
