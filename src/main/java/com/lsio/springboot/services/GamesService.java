@@ -33,12 +33,14 @@ public class GamesService {
         return new ResponseEntity<>("success", HttpStatus.CREATED);
     }
 
+    //to be modified
     public Game getGame(String gameName) {
         return gameRepository.findByGamename(gameName);
     }
 
     public ResponseEntity<Game> getGameWithID(Long id) {
-        
-        return new ResponseEntity<Game>(HttpStatus.OK);
+        Game game = gameRepository.findById(id).get();
+        return new ResponseEntity<Game>(game, HttpStatus.OK);
     }
+    
 }

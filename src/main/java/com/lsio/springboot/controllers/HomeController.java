@@ -24,16 +24,6 @@ public class HomeController {
     @Autowired 
     GamesService gamesService;
 
-    @GetMapping("/admin")
-    public String sayHello(){
-        return "Hello Admin";
-    }
-
-    @GetMapping("/user")
-    public String sayHelloU(){
-        return "Hello User";
-    }
-
     @GetMapping("/user/getgames")
     public ResponseEntity<List<Game>> getGames(){
         return gamesService.getGames();
@@ -53,7 +43,7 @@ public class HomeController {
     public ResponseEntity<Game> getGameWithID(@PathVariable Long id){
         return gamesService.getGameWithID(id);
     }
-
+ 
     @Autowired
     private GameMapper mapper;
 
