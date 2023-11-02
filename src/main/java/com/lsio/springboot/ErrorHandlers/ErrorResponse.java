@@ -1,4 +1,4 @@
-package com.lsio.springboot.services.ErrorHandlers;
+package com.lsio.springboot.ErrorHandlers;
 
 import java.util.ArrayList;
 import java.util.List;

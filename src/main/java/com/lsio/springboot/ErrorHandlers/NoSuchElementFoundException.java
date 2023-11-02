@@ -1,4 +1,4 @@
-package com.lsio.springboot.services.ErrorHandlers;
+package com.lsio.springboot.ErrorHandlers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

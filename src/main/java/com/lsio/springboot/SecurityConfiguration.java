@@ -1,4 +1,4 @@
-package com.lsio.springboot.services;
+package com.lsio.springboot;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
